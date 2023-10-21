@@ -1,0 +1,62 @@
+{
+    "name": "Zephyr DevContainer",
+    "image": "ghcr.io/zephyrproject-rtos/zephyr-build:v0.26.5", // https://github.com/zephyrproject-rtos/docker-image
+    "runArgs": [
+        "--env-file", "${localWorkspaceFolder}/.devcontainer/.env",
+        "--network=bridge",
+        "--cap-add=SYS_PTRACE",
+        "--security-opt",
+        "seccomp=unconfined",
+        "--privileged",
+        "--device-cgroup-rule=c 188:* rmw"
+    ],
+    "mounts": [
+        "source=/dev,target=/dev,type=bind,consistency=cached"
+    ],
+    "containerEnv": {
+        "PATH": "/workdir/deps/zephyr/scripts:${env:PATH}"
+    },
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "bash"
+            },
+            "extensions": [
+                // Git Extensions
+                "mhutchie.git-graph",
+                "vivaxy.vscode-conventional-commits",
+                // VSCode Editor Extensions
+                "pkief.material-icon-theme",
+                "spmeesseman.vscode-taskexplorer",
+                "rhangai.file-template",
+                "christian-kohler.path-intellisense",
+                "editorconfig.editorconfig",
+                // Development Extensions
+                "ms-python.python",
+                "ms-python.pylint",
+                "ms-vscode.cpptools",
+                "ms-vscode.cpptools-extension-pack",
+                "ms-vscode.cmake-tools",
+                "twxs.cmake",
+                "cheshirekow.cmake-format",
+                "nordic-semiconductor.nrf-devicetree",
+                "nordic-semiconductor.nrf-kconfig",
+                // Debugging Extensions
+                "marus25.cortex-debug",
+                // Linter Extensions
+                "sonarsource.sonarlint-vscode",
+                // Documentation Extensions
+                "cschlosser.doxdocgen",
+                "yzhang.markdown-all-in-one",
+                "yzane.markdown-pdf",
+                "jebbs.plantuml",
+                "shd101wyy.markdown-preview-enhanced"
+            ]
+        }
+    },
+    "remoteUser": "user",
+    "workspaceMount": "source=${localWorkspaceFolder},target=/workdir,type=bind,consistency=delegated",
+    "workspaceFolder": "/workdir",
+    "onCreateCommand": "bash .devcontainer/postCreateCommand.sh",
+    "postAttachCommand": "bash .devcontainer/postAttachCommand.sh"
+}
