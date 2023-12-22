@@ -1,6 +1,6 @@
 {
     "name": "Zephyr DevContainer",
-    "image": "ghcr.io/zephyrproject-rtos/zephyr-build:v0.26.5", // https://github.com/zephyrproject-rtos/docker-image
+    "image": "ghcr.io/zephyrproject-rtos/zephyr-build:v0.26.6", // https://github.com/zephyrproject-rtos/docker-image
     "runArgs": [
         "--env-file", "${localWorkspaceFolder}/.devcontainer/.env",
         "--network=bridge",
