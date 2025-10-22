@@ -1,6 +1,6 @@
 {
     "name": "Zephyr DevContainer",
-    "image": "ghcr.io/zephyrproject-rtos/zephyr-build:v0.26.11", // https://github.com/zephyrproject-rtos/docker-image
+    "image": "ghcr.io/zephyrproject-rtos/zephyr-build:v0.28.6", // https://github.com/zephyrproject-rtos/docker-image
     "runArgs": [
         "--env-file",
         "${localWorkspaceFolder}/.devcontainer/.env",
@@ -38,7 +38,6 @@
                 "ms-vscode.cpptools",
                 "ms-vscode.cpptools-extension-pack",
                 "ms-vscode.cmake-tools",
-                "twxs.cmake",
                 "cheshirekow.cmake-format",
                 "nordic-semiconductor.nrf-devicetree",
                 "nordic-semiconductor.nrf-kconfig",
